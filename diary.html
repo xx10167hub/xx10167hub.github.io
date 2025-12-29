@@ -25,22 +25,21 @@
             color: #4a4a4a;
             margin-bottom: 40px;
         }
-        /* 日记列表样式 */
         .diary-list {
             list-style: none;
             padding: 0;
         }
         .diary-item {
-            display: flex; /* 让标题和日期排在同一行 */
-            justify-content: space-between; /* 一个靠左，一个靠右 */
+            display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 15px 10px;
-            border-bottom: 1px dashed #ffd1dc; /* 粉色虚线分割 */
+            border-bottom: 1px dashed #ffd1dc;
             transition: 0.3s;
         }
         .diary-item:hover {
-            background-color: #fff0f5; /* 鼠标放上去变粉 */
-            padding-left: 15px; /* 稍微动一下，增加交互感 */
+            background-color: #fff0f5;
+            padding-left: 15px;
             border-radius: 8px;
         }
         .diary-title {
@@ -48,16 +47,16 @@
             color: #4a4a4a;
             font-size: 1.1em;
             font-weight: bold;
-            flex: 1; /* 标题占据主要空间 */
+            flex: 1;
         }
         .diary-title:hover {
-            color: #d63384; /* 鼠标悬停变深粉色 */
+            color: #d63384;
         }
         .diary-date {
             color: #999;
             font-size: 0.9em;
             margin-left: 20px;
-            white-space: nowrap; /* 防止日期换行 */
+            font-family: Consolas, monospace;
         }
         .back-btn {
             display: block;
@@ -84,15 +83,15 @@
             
             <li class="diary-item">
                 <a href="diary-night.html" class="diary-title">🌙 深夜独白：关于便签、树洞与掌控感</a>
-                <span class="diary-date">2025-12-29</span>
+                <span class="diary-date">2025-12-30 00:05</span>
             </li>
 
             <li class="diary-item">
                 <a href="diary-20251229.html" class="diary-title">🎂 32岁生日：记录我的2025与个人网站诞生</a>
-                <span class="diary-date">2025-12-29</span>
+                <span class="diary-date">2025-12-29 23:37</span>
             </li>
 
-            </ul>
+        </ul>
 
         <a href="index.html" class="back-btn">← 返回首页</a>
     </div>
