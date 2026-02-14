@@ -152,7 +152,7 @@ h1 {
 .diary-detail p {
     margin-bottom: 20px;
     line-height: 1.8;
-    text-align: justify; /* 阅读体验更好的两端对齐，也可以改成 left */
+    text-align: left; /* 左对齐 */
 }
 
 .subtitle {
