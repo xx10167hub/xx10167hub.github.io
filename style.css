@@ -1,4 +1,6 @@
-/* 通用样式 */
+/* =========================================
+   1. 通用基础样式
+   ========================================= */
 body {
     font-family: '微软雅黑', sans-serif;
     background-color: #fdf6f9;
@@ -8,7 +10,9 @@ body {
     text-align: left;
 }
 
-/* 头部样式 */
+/* =========================================
+   2. 头部样式 (头像、导航)
+   ========================================= */
 header {
     padding: 50px 20px;
     background-color: #fff;
@@ -45,7 +49,6 @@ header h1 {
     display: inline-block;
 }
 
-/* 导航样式 */
 nav {
     margin-top: 30px;
     display: flex;
@@ -69,7 +72,9 @@ nav {
     transform: translateY(-2px);
 }
 
-/* 容器样式 - 保持居中以确保首页正常 */
+/* =========================================
+   3. 核心容器样式 (默认居中，服务于首页)
+   ========================================= */
 .container {
     max-width: 800px;
     margin: 40px auto;
@@ -77,35 +82,45 @@ nav {
     background: white;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center; /* 首页核心：居中对齐 */
+    
+    /* 默认居中 (首页保持这个样子) */
+    text-align: center; 
 }
 
-.container h2 {
-    text-align: center;
+/* =========================================
+   4. 【关键修改】日记模式专用样式
+   只要 HTML 里加了 diary-mode 类，这里强制改为左对齐
+   ========================================= */
+.container.diary-mode {
+    text-align: left !important; /* 强制左对齐 */
 }
 
-.container p {
-    text-align: center;
+/* 强制日记模式下的标题、段落左对齐 */
+.container.diary-mode h1,
+.container.diary-mode h2,
+.container.diary-mode p,
+.container.diary-mode .diary-detail {
+    text-align: left !important;
 }
 
-/* 日记列表样式 - 强制左对齐 */
-.diary-list {
-    list-style: none;
+/* 让日记列表左对齐 */
+.container.diary-mode .diary-list {
+    text-align: left;
     padding: 0;
-    text-align: left; /* 【修改】覆盖父容器的居中，让列表左对齐 */
     width: 100%;
 }
 
-.diary-item {
+/* 修正日记列表项布局 (左边标题，右边日期) */
+.container.diary-mode .diary-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 15px 10px;
     border-bottom: 1px dashed #ffd1dc;
-    transition: 0.3s;
+    text-align: left;
 }
 
-.diary-item:hover {
+.container.diary-mode .diary-item:hover {
     background-color: #fff0f5;
     padding-left: 15px;
     border-radius: 8px;
@@ -117,11 +132,7 @@ nav {
     font-size: 1.1em;
     font-weight: bold;
     flex: 1;
-    text-align: left; /* 确保标题文字靠左 */
-}
-
-.diary-title:hover {
-    color: #d63384;
+    text-align: left;
 }
 
 .diary-date {
@@ -129,25 +140,14 @@ nav {
     font-size: 0.9em;
     margin-left: 20px;
     font-family: Consolas, monospace;
-    white-space: nowrap; /* 防止日期换行 */
+    white-space: nowrap;
 }
 
-/* 日记详情页样式 - 强制左对齐 */
-.diary-detail {
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    text-align: left; /* 【修改】覆盖父容器的居中，让内容左对齐 */
-}
-
-.diary-detail h1 {
-    font-size: 1.6em;
-    color: #333;
-    margin-bottom: 5px;
-    text-align: left;
+/* 日记详情页的正文样式 */
+.diary-detail p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify; /* 阅读体验更好的两端对齐，也可以改成 left */
 }
 
 .subtitle {
@@ -157,20 +157,17 @@ nav {
     margin-bottom: 30px;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
+    display: block;
 }
 
-.diary-detail p {
-    margin-bottom: 20px;
-    text-align: left; /* 【修改】改为左对齐，阅读更舒适 */
-    line-height: 1.8;
+/* 返回按钮：在日记模式下靠左 */
+.container.diary-mode .back-btn {
+    display: inline-block; /* 只有变成块级或行内块才能控制边距 */
+    margin: 40px 0 0 0;    /* 靠左，不自动居中 */
+    text-align: center;    /* 按钮里的字居中 */
 }
 
-.highlight {
-    color: #d63384;
-    font-weight: bold;
-}
-
-/* 按钮样式 */
+/* 普通模式下的返回按钮 (如果别的地方用到) */
 .back-btn {
     display: block;
     width: fit-content;
@@ -188,7 +185,9 @@ nav {
     background-color: #ff7da0;
 }
 
-/* 页脚样式 */
+/* =========================================
+   5. 页脚
+   ========================================= */
 footer {
     margin-top: 50px;
     padding: 20px;
@@ -197,7 +196,9 @@ footer {
     text-align: center;
 }
 
-/* 响应式设计 */
+/* =========================================
+   6. 手机端适配
+   ========================================= */
 @media (max-width: 768px) {
     .container {
         margin: 20px;
@@ -219,7 +220,7 @@ footer {
         text-align: center;
     }
     
-    .diary-item {
+    .container.diary-mode .diary-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 5px;
