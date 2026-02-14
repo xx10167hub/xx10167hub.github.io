@@ -103,6 +103,11 @@ nav {
     text-align: left !important;
 }
 
+/* 确保日记模式下的h1标题左对齐 */
+h1 {
+    text-align: left;
+}
+
 /* 让日记列表左对齐 */
 .container.diary-mode .diary-list {
     text-align: left;
